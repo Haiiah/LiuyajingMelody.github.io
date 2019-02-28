@@ -82,32 +82,31 @@
 <meta name="description" content="PCA(主成分分析)一、前提线性代数知识回顾实对称矩阵的不同特征值对应的特征向量一定是正交的。 证明过程如下：  二、问题的提出 实际问题往往需要研究多个特征，而这些特征存在一定的相关性。  将多个特征综合为少数几个代表性特征，即可以代表原始特征的绝大多数信息，组合后的特征又互不相关，降低相关性。 上述问题即可以用主成分分析的方法来解决。   三、考察矩阵和向量的乘积（PCA核心推导过程）对于n个">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="主成分分析理解及推导过程">
-<meta property="og:url" content="http://yoursite.com/2019/02/28/主成分分析理解及推导过程/index.html">
+<meta property="og:title" content="主成分分析及其对应的推导过程">
+<meta property="og:url" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/index.html">
 <meta property="og:site_name" content="丫丫的幸福生活">
 <meta property="og:description" content="PCA(主成分分析)一、前提线性代数知识回顾实对称矩阵的不同特征值对应的特征向量一定是正交的。 证明过程如下：  二、问题的提出 实际问题往往需要研究多个特征，而这些特征存在一定的相关性。  将多个特征综合为少数几个代表性特征，即可以代表原始特征的绝大多数信息，组合后的特征又互不相关，降低相关性。 上述问题即可以用主成分分析的方法来解决。   三、考察矩阵和向量的乘积（PCA核心推导过程）对于n个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551343965345.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551344707628.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551344739265.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551345103596.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551345159587.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551345054365.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551353489970.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551353566090.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551353607265.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551353639267.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201637.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201350.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201406.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201423.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201442.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201451.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201459.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201507.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201513.png">
 <meta property="og:image" content="https://img-blog.csdn.net/20180609144901705?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Byb2dyYW1fZGV2ZWxvcGVy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20180609144912971?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Byb2dyYW1fZGV2ZWxvcGVy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551353673725.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551353714983.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551353775462.png">
-<meta property="og:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551353802203.png">
-<meta property="og:updated_time" content="2019-02-28T11:47:16.819Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201519.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201527.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201534.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201541.png">
+<meta property="og:updated_time" content="2019-02-28T12:23:55.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="主成分分析理解及推导过程">
+<meta name="twitter:title" content="主成分分析及其对应的推导过程">
 <meta name="twitter:description" content="PCA(主成分分析)一、前提线性代数知识回顾实对称矩阵的不同特征值对应的特征向量一定是正交的。 证明过程如下：  二、问题的提出 实际问题往往需要研究多个特征，而这些特征存在一定的相关性。  将多个特征综合为少数几个代表性特征，即可以代表原始特征的绝大多数信息，组合后的特征又互不相关，降低相关性。 上述问题即可以用主成分分析的方法来解决。   三、考察矩阵和向量的乘积（PCA核心推导过程）对于n个">
-<meta name="twitter:image" content="c:/Users/liuyajing/AppData/Roaming/Typora/typora-user-images/1551343965345.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/D:/hexo/hexospace/source/_posts/主成分分析及其对应的推导过程/微信截图_20190228201637.png">
 
 
 
@@ -137,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/28/主成分分析理解及推导过程/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/">
 
 
 
 
 
-  <title>主成分分析理解及推导过程 | 丫丫的幸福生活</title>
+  <title>主成分分析及其对应的推导过程 | 丫丫的幸福生活</title>
   
 
 
@@ -290,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/主成分分析理解及推导过程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="丫靖">
@@ -307,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">主成分分析理解及推导过程</h1>
+          <h1 class="post-title" itemprop="name headline">主成分分析及其对应的推导过程</h1>
         
 
         <div class="post-meta">
@@ -319,7 +318,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T19:45:26+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T20:08:03+08:00">
                 2019-02-28
               </time>
             
@@ -359,7 +358,7 @@
       
         <h4 id="PCA-主成分分析"><a href="#PCA-主成分分析" class="headerlink" title="PCA(主成分分析)"></a>PCA(主成分分析)</h4><h6 id="一、前提线性代数知识回顾"><a href="#一、前提线性代数知识回顾" class="headerlink" title="一、前提线性代数知识回顾"></a>一、前提线性代数知识回顾</h6><p>实对称矩阵的不同特征值对应的特征向量一定是正交的。</p>
 <p>证明过程如下：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551343965345.png" alt="1551343965345"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201637.png" alt="微信截图_20190228201637"></p>
 <h5 id="二、问题的提出"><a href="#二、问题的提出" class="headerlink" title="二、问题的提出"></a>二、问题的提出</h5><ol>
 <li><p>实际问题往往需要研究多个特征，而这些特征存在一定的相关性。</p>
 </li>
@@ -368,13 +367,12 @@
 </li>
 </ol>
 <h6 id="三、考察矩阵和向量的乘积（PCA核心推导过程）"><a href="#三、考察矩阵和向量的乘积（PCA核心推导过程）" class="headerlink" title="三、考察矩阵和向量的乘积（PCA核心推导过程）"></a>三、考察矩阵和向量的乘积（PCA核心推导过程）</h6><p>对于n个特征的m个样本，将每个样本写成行向量，得到一个m*n的矩阵A，即：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551344707628.png" alt="1551344707628"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201350.png" alt="微信截图_20190228201350"></p>
 <p>取单位向量u，计算A*u的值：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551344739265.png" alt="1551344739265"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201406.png" alt="微信截图_20190228201406"></p>
 <p>对于得到的向量Au,求该向量的方差，这里假设Au是去均值化的，即E=0;</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551345103596.png" alt="1551345103596"></p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551345159587.png" alt="1551345159587"></p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551345054365.png" alt="1551345054365"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201423.png" alt="微信截图_20190228201423"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201442.png" alt="微信截图_20190228201442"></p>
 <p>当A中的列向量都是取均值化时，A的转置乘以A就是协方差矩阵，其中u是协方差矩阵的特征向量，特征值的大小为原始观测数据的特征在向量u的方差。</p>
 <h5 id="四、PCA算法过程"><a href="#四、PCA算法过程" class="headerlink" title="四、PCA算法过程"></a>四、PCA算法过程</h5><p>PCA的步骤：</p>
 <p>1）对原始数据进行标准化处理：对该指标变量进行标准化（均值化）</p>
@@ -382,24 +380,24 @@
 <p>3）计算相关系数矩阵的特征值和特征向量，得到新的指标标量。</p>
 <p>4）计算特征值的信息贡献率和累积贡献率，按一定规则选择主成分</p>
 <p>5）以主成分的贡献率为权重，构建主成分综合评价模型，计算综合评价值和排名。</p>
-<h5 id="五、PCA举例"><a href="#五、PCA举例" class="headerlink" title="五、PCA举例"></a>五、PCA举例</h5><p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551353489970.png" alt="1551353489970"></p>
+<h5 id="五、PCA举例"><a href="#五、PCA举例" class="headerlink" title="五、PCA举例"></a>五、PCA举例</h5><p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201451.png" alt="微信截图_20190228201451"></p>
 <p>以X为例，我们用PCA方法将这两行数据降到一行。</p>
 <p>1)因为X矩阵的每行已经是零均值，所以不需要去平均值。</p>
 <p>2)求协方差矩阵：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551353566090.png" alt="1551353566090"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201459.png" alt="微信截图_20190228201459"></p>
 <p>3)求协方差矩阵的特征值与特征向量。</p>
 <p>求解后的特征值为：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551353607265.png" alt="1551353607265"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201507.png" alt="微信截图_20190228201507"></p>
 <p>对应的特征向量为：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551353639267.png" alt="1551353639267"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201513.png" alt="微信截图_20190228201513"></p>
 <p>其中对应的特征向量分别是一个通解，<img src="https://img-blog.csdn.net/20180609144901705?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Byb2dyYW1fZGV2ZWxvcGVy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">和<img src="https://img-blog.csdn.net/20180609144912971?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Byb2dyYW1fZGV2ZWxvcGVy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">可以取任意实数。那么标准化后的特征向量为：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551353673725.png" alt="1551353673725"></p>
-<p>4)矩阵P为：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551353714983.png" alt="1551353714983"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201519.png" alt="微信截图_20190228201519"></p>
+<p>所以矩阵P表示为：</p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201527.png" alt="微信截图_20190228201527"></p>
 <p>5)最后我们用P的第一行乘以数据矩阵X，就得到了降维后的表示：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551353775462.png" alt="1551353775462"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201534.png" alt="微信截图_20190228201534"></p>
 <p>结果如下图所示：</p>
-<p><img src="C:\Users\liuyajing\AppData\Roaming\Typora\typora-user-images\1551353802203.png" alt="1551353802203"></p>
+<p><img src="/2019/02/28/主成分分析及其对应的推导过程/D:/hexo\hexospace\source\_posts\主成分分析及其对应的推导过程\微信截图_20190228201541.png" alt="微信截图_20190228201541"></p>
 <p>注意：如果我们通过特征值分解协方差矩阵，那么我们只能得到一个方向的PCA降维。这个方向就是对数据矩阵X从行(或列)方向上压缩降维。</p>
 <p>参考：<a href="https://blog.csdn.net/watkinsong/article/details/8234766" target="_blank" rel="noopener">https://blog.csdn.net/watkinsong/article/details/8234766</a></p>
 <p>​            <a href="https://blog.csdn.net/program_developer/article/details/80632779" target="_blank" rel="noopener">https://blog.csdn.net/program_developer/article/details/80632779</a></p>
@@ -429,22 +427,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/02/26/小白博客历险记/" rel="next" title="小白博客历险记">
-                <i class="fa fa-chevron-left"></i> 小白博客历险记
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -518,7 +500,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
