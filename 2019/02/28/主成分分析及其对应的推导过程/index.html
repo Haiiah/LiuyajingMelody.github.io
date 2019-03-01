@@ -96,13 +96,11 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/7.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/8.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/9.png">
-<meta property="og:image" content="https://img-blog.csdn.net/20180609144901705?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Byb2dyYW1fZGV2ZWxvcGVy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180609144912971?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Byb2dyYW1fZGV2ZWxvcGVy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/10.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/11.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/12.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/28/主成分分析及其对应的推导过程/13.png">
-<meta property="og:updated_time" content="2019-02-28T14:07:33.491Z">
+<meta property="og:updated_time" content="2019-03-01T00:05:15.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="主成分分析及其对应的推导过程">
 <meta name="twitter:description" content="PCA(主成分分析)一、前提线性代数知识回顾实对称矩阵的不同特征值对应的特征向量一定是正交的。 证明过程如下：  二、问题的提出 实际问题往往需要研究多个特征，而这些特征存在一定的相关性。  将多个特征综合为少数几个代表性特征，即可以代表原始特征的绝大多数信息，组合后的特征又互不相关，降低相关性。 上述问题即可以用主成分分析的方法来解决。   三、考察矩阵和向量的乘积（PCA核心推导过程）对于n个">
@@ -410,8 +408,9 @@
 <p>3)求协方差矩阵的特征值与特征向量。</p>
 <p>求解后的特征值为：</p>
 <p><img src="/2019/02/28/主成分分析及其对应的推导过程/8.png"></p>
+<p>其中对应的特征向量分别是一个通解，C1和C2可以取任意实数;</p>
 <p><img src="/2019/02/28/主成分分析及其对应的推导过程/9.png"></p>
-<p>其中对应的特征向量分别是一个通解，<img src="https://img-blog.csdn.net/20180609144901705?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Byb2dyYW1fZGV2ZWxvcGVy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">和<img src="https://img-blog.csdn.net/20180609144912971?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Byb2dyYW1fZGV2ZWxvcGVy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img">可以取任意实数。那么标准化后的特征向量为：</p>
+<p>那么标准化后的特征向量为：</p>
 <p><img src="/2019/02/28/主成分分析及其对应的推导过程/10.png"></p>
 <p>所以矩阵P表示为：</p>
 <p><img src="/2019/02/28/主成分分析及其对应的推导过程/11.png"></p>
