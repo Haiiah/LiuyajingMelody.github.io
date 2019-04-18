@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="二、多幅遥感图像云雾去除方法2.1 多时相遥感图像云雾去除(1) Cloud Removal From Multitemporal Satellite Images Using Information Clonin（2012年 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING -SCI -2区） 主要包括三个步骤：云检测、图像质量评估和信息重建。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="丫丫的幸福生活">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/多幅遥感图像云雾去除方法/index.html">
+<meta property="og:site_name" content="丫丫的幸福生活">
+<meta property="og:description" content="二、多幅遥感图像云雾去除方法2.1 多时相遥感图像云雾去除(1) Cloud Removal From Multitemporal Satellite Images Using Information Clonin（2012年 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING -SCI -2区） 主要包括三个步骤：云检测、图像质量评估和信息重建。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/多幅遥感图像云雾去除方法/C:/Users/LIUYAJ~1/AppData/Local/Temp/1554880569261.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/多幅遥感图像云雾去除方法/C:/Users/LIUYAJ~1/AppData/Local/Temp/1554887159713.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/19/多幅遥感图像云雾去除方法/C:/Users/LIUYAJ~1/AppData/Local/Temp/1554887499869.png">
+<meta property="og:updated_time" content="2019-04-12T01:29:23.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="丫丫的幸福生活">
+<meta name="twitter:description" content="二、多幅遥感图像云雾去除方法2.1 多时相遥感图像云雾去除(1) Cloud Removal From Multitemporal Satellite Images Using Information Clonin（2012年 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING -SCI -2区） 主要包括三个步骤：云检测、图像质量评估和信息重建。">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/19/多幅遥感图像云雾去除方法/C:/Users/LIUYAJ~1/AppData/Local/Temp/1554880569261.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/19/多幅遥感图像云雾去除方法/">
+
+
+
+
+
+  <title> | 丫丫的幸福生活</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">丫丫的幸福生活</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/多幅遥感图像云雾去除方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="丫靖">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/14.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丫丫的幸福生活">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T07:19:17+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="二、多幅遥感图像云雾去除方法"><a href="#二、多幅遥感图像云雾去除方法" class="headerlink" title="二、多幅遥感图像云雾去除方法"></a>二、多幅遥感图像云雾去除方法</h2><h5 id="2-1-多时相遥感图像云雾去除"><a href="#2-1-多时相遥感图像云雾去除" class="headerlink" title="2.1 多时相遥感图像云雾去除"></a>2.1 多时相遥感图像云雾去除</h5><h6 id="1-Cloud-Removal-From-Multitemporal-Satellite-Images-Using-Information-Clonin（2012年-IEEE-TRANSACTIONS-ON-GEOSCIENCE-AND-REMOTE-SENSING-SCI-2区）"><a href="#1-Cloud-Removal-From-Multitemporal-Satellite-Images-Using-Information-Clonin（2012年-IEEE-TRANSACTIONS-ON-GEOSCIENCE-AND-REMOTE-SENSING-SCI-2区）" class="headerlink" title="(1) Cloud Removal From Multitemporal Satellite Images Using Information Clonin（2012年 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING -SCI -2区）"></a>(1) Cloud Removal From Multitemporal Satellite Images Using Information Clonin（2012年 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING -SCI -2区）</h6><p><img src="/2019/04/19/多幅遥感图像云雾去除方法/C:/Users\LIUYAJ~1\AppData\Local\Temp\1554880569261.png" alt="1554880569261"></p>
+<p>主要包括三个步骤：云检测、图像质量评估和信息重建。第一步采用半自动云检测方法对输入图像进行云和云阴影的检测。基于结构相似度(SSIM)指标，根据图像相似度对质量进行了评价。最后，去除卫星图像中被云污染的部分，然后利用多时间图像的相关性重建缺失数据的信息，对去除噪声污染的像素点后的数据进行填充。 (信息克隆方法）。</p>
+<p>利用多时相图像的时间相关性重构丢失的数据信息，即在短期内变化较小的图像中将无云区域的信息克隆到云覆盖区域。该方法与其他方法相比能得到更好的辐射精度和一致性，且能处理异质景观中的大量云。与相关方法相比，该方法可能在辐射测量精度和一致性方面产生更好的结果。通过对Landsat-7 ETM+传感器获取的图像序列进行实验分析，证明了处理异构景观的方法的可行性，并证明了处理大量云图像的方法的鲁棒性。此外，对不同云污染条件下的模拟数据进行了定量和定性分析，表明该方法明显优于相关方法。</p>
+<h6 id="（2）A-Multiple-point-Geostatistics-Method-for-filling-gaps-in-Landsat-ETM-SLC-off-images-（2015年-第21届国际建模与仿真大会-）"><a href="#（2）A-Multiple-point-Geostatistics-Method-for-filling-gaps-in-Landsat-ETM-SLC-off-images-（2015年-第21届国际建模与仿真大会-）" class="headerlink" title="（2）A Multiple-point Geostatistics Method for filling gaps in Landsat ETM+ SLC-off images （2015年 第21届国际建模与仿真大会 ）"></a>（2）A Multiple-point Geostatistics Method for filling gaps in Landsat ETM+ SLC-off images （2015年 第21届国际建模与仿真大会 ）</h6><p>研究出一种邻域相似像素插补器(Neighborhood Similar Pixel Interpolator, NSPI)解决由Landsat ETM+扫描线校正器方法(Scan Line Corrector, SLC)引起的空白填补的问题。</p>
+<p>实现了一种新开发的地质统计学方法，即直接抽样法，来填补这些空白。直接采样法是一种基于训练图像的条件随机方法。其中训练图像是同一场景时间相近的几幅图像，使用直接抽样法填补空白。与传统的地质统计学方法(如克里格法)相比，该方法具有实现简单、对输入图像没有严格要求等突出优点。即使在使用单个图像(没有任何输入图像)中包含的信息时，也会显示出可接受的结果。如果在另一个日期合并一个覆盖相同区域的辅助图像，则可以进一步改进填充结果。由于图像之间的互补性，利用辅助图像可以更准确地预测小或窄的目标。</p>
+<h6 id="（3）Thin-cloud-removal-from-remote-sensing-images-using-multidirectional-dual-tree-complex-wavelet-transform-and-transfer-least-square-support-vector-regression（Journal-of-Applied-REMOTE-SENSING-SCI-4-区）"><a href="#（3）Thin-cloud-removal-from-remote-sensing-images-using-multidirectional-dual-tree-complex-wavelet-transform-and-transfer-least-square-support-vector-regression（Journal-of-Applied-REMOTE-SENSING-SCI-4-区）" class="headerlink" title="（3）Thin cloud removal from remote sensing images using multidirectional dual tree complex wavelet transform and transfer least square support vector regression（Journal of Applied REMOTE SENSING-SCI 4 区）"></a>（3）Thin cloud removal from remote sensing images using multidirectional dual tree complex wavelet transform and transfer least square support vector regression（Journal of Applied REMOTE SENSING-SCI 4 区）</h6><p>提出了一种基于多向对偶树复小波变换(M-DTCWT)与最小二乘支持向量相结合的薄云去除算法，回归(T-LSSVR)是利用多源遥感图像和多时间遥感图像的互补信息，恢复云污染区域的信息。DTCWT具有良好的平移不变性和方向选择性。它可以以有限的冗余度完美地重建图像。M-DTCWT有更多的对角方向，通过将沙漏滤波器组与DTCWT相结合来减少细节。将多源和多时间遥感图像分解为多尺度子带利用M-DTCWT和T-LSSVR分别得到无云图像的子带系数预测云污染图像的子带系数以去除薄云。</p>
+<h6 id="（4）基于图像变换和迁移学习的薄云覆盖遥感图像地物信息恢复算法研究-Research-on-the-algorithm-of-ground-object-information-recovery-for-thin-cloud-contaminated-remote-sens-i-ng-images-based-on-image-transformateion-on-and-transfer-learning（硕士论文）"><a href="#（4）基于图像变换和迁移学习的薄云覆盖遥感图像地物信息恢复算法研究-Research-on-the-algorithm-of-ground-object-information-recovery-for-thin-cloud-contaminated-remote-sens-i-ng-images-based-on-image-transformateion-on-and-transfer-learning（硕士论文）" class="headerlink" title="（4）基于图像变换和迁移学习的薄云覆盖遥感图像地物信息恢复算法研究-Research on the algorithm of ground object information recovery for thin cloud contaminated remote sens i ng images based on image transformateion on and transfer learning（硕士论文）"></a>（4）基于图像变换和迁移学习的薄云覆盖遥感图像地物信息恢复算法研究-Research on the algorithm of ground object information recovery for thin cloud contaminated remote sens i ng images based on image transformateion on and transfer learning（硕士论文）</h6><p> 提出一种结合M-NDTCWT与T LSSVR的薄云覆盖遥感图像地物信息恢复算法。首先，利用多方向非抽样对偶数复小波变换(M-NDTCWT)对多源多时相遥感图像进行多分辨率分解，对薄云图像分解后的高频系数进行贝叶斯地物初分类;然后，对每类地物的低频系数通过迁移最小方差支持向量回归模型进行域自适应学习，获取模型参数;最后，利用所获得的迁移回归模型，用无云参考图像的低频系数来预测薄云覆盖图像的低频系数，以去除薄云，恢复薄云覆盖图像的地物信息。实验结果表明，所提算法恢复的地物细节清楚，光谱失真较小。特别对地物季节性变化的薄云覆盖遥感图像，该算法能有效恢复薄云覆盖区域的地物信息。</p>
+<h6 id="（5）融合引导滤波和迁移学习的薄云图像中地物信息恢复算法-（2018测绘学报）"><a href="#（5）融合引导滤波和迁移学习的薄云图像中地物信息恢复算法-（2018测绘学报）" class="headerlink" title="（5）融合引导滤波和迁移学习的薄云图像中地物信息恢复算法 （2018测绘学报）"></a>（5）融合引导滤波和迁移学习的薄云图像中地物信息恢复算法 （2018测绘学报）</h6><p>文章给出一种融合引导滤波和迁移学习的薄云图像中地物信息恢复算法。该算法利用多方向非抽样对偶树复小波变换对多源多时相遥感图像进行多分辨率分解，对分解后的图像低频成分分别利用支持向量引导滤波方法和域自适应的迁移 学习方法初步去除图像上的薄云，再对这两种方 法处理后的图像低频成分利用基于区域能量的选 择和加权相结合的方法进行融合，最终获取地物 细节清晰的无云遥感图像。由于支持向量引导滤波能有效保留地物的细节信息，还具有较好的抗噪声能力，域自适应的迁移学习模型能使得可利用的多源多时相遥感图像范围大大扩展，本文将这两种方法恢复地物信息的图像进行融合，充分利用支持向量引导滤波和迁移学习方法的优势， 在恢复薄云下地物信息的同时有效去除薄云，获得好的地物信息恢复效果。</p>
+<h6 id="（6）Landsat卫星图像云层去除算法研究-Research-of-Cloud-Removal-Algorithm-for-Landsat（硕士论文）"><a href="#（6）Landsat卫星图像云层去除算法研究-Research-of-Cloud-Removal-Algorithm-for-Landsat（硕士论文）" class="headerlink" title="（6）Landsat卫星图像云层去除算法研究-Research of Cloud Removal Algorithm for Landsat（硕士论文）"></a>（6）Landsat卫星图像云层去除算法研究-Research of Cloud Removal Algorithm for Landsat（硕士论文）</h6><p>  提出一种基于多维输出支持向量回归的Landsat卫星图像云去除算法。结合多维输出支持向量回归模型和方向滤波器组，构建支持向量值轮廓波变换，对Landsat卫星图像进行多尺度、多方向、多分辨率分解。在此基础上，通过抓取薄云覆盖区域的地面景物信息(高频细节信息)，实现薄云去除。对于厚云区域，借助多源多时相的同一地区的Landsat卫星图像，利用多维输出支持向量回归学习方法预测云遮挡区域的地物信息，解决多源图像之间存在的辐射差异问题和云层相互重叠问题，获得无云Landsat卫星图像。</p>
+<h5 id="2-2-融合方法遥感图像云雾去除"><a href="#2-2-融合方法遥感图像云雾去除" class="headerlink" title="2.2 融合方法遥感图像云雾去除"></a>2.2 融合方法遥感图像云雾去除</h5><h6 id="（1）Image-fusion-for-automatic-detection-and-removal-of-clouds-and-their-shadows-地理信息学2006"><a href="#（1）Image-fusion-for-automatic-detection-and-removal-of-clouds-and-their-shadows-地理信息学2006" class="headerlink" title="（1）Image fusion for automatic detection  and removal of clouds and their shadows(地理信息学2006 )"></a>（1）Image fusion for automatic detection  and removal of clouds and their shadows(地理信息学2006 )</h6><p>提出了一种基于小波变换的多时间图像融合方法，用于检测和去除云层及其阴影。一般有两种小波分解方法，即离散小波变换(DWT)和平稳小波变换(SWT)。与DWT相比，SWT不采用向下采样的方法，从而使各分辨率层的系数数目保持一致。通过使用多时间图像，更加容易的检测到云的区域及其阴影。该方法的基本策略是自动检测包含云及其阴影的区域，然后将补充信息合并到来自多个时间图像的合成图像中。它包括四个主要步骤:(1)SWT变换，(2)云及其阴影的检测，(3)图像融合，(4)SWT反变换。 </p>
+<h6 id="（2）Cloud-covering-denoising-through-image-fusion-2007年-Image-and-Vision-Computing-SCI-3区"><a href="#（2）Cloud-covering-denoising-through-image-fusion-2007年-Image-and-Vision-Computing-SCI-3区" class="headerlink" title="（2）Cloud covering denoising through image fusion( 2007年 Image and Vision Computing -SCI 3区)"></a>（2）Cloud covering denoising through image fusion( 2007年 Image and Vision Computing -SCI 3区)</h6><p>该方法等将云看作是图像中的噪声，通过构造伪维格纳分布 ((Pseudo Wigner Distribution, PWD)变换，对源图像进行逐像素的噪声程度检测，通过融合方法利用无噪声像素完成云层的去除。该方法在利用光谱信息滤除云像素的同时，也会滤除与云有相似光谱特征的亮度较高面积较大的地物区域。如果云层稍厚，该方法恢复云覆盖下的地物的效果不佳。</p>
+<h6 id="（3）Pansharpening-for-Cloud-Contaminated-Very-High-Resolution-Remote-Sensing-Images（2018年-IEEE-TRANSACTIONS-ON-GEOSCIENCE-AND-REMOTE-SENSING-SCI-3区）"><a href="#（3）Pansharpening-for-Cloud-Contaminated-Very-High-Resolution-Remote-Sensing-Images（2018年-IEEE-TRANSACTIONS-ON-GEOSCIENCE-AND-REMOTE-SENSING-SCI-3区）" class="headerlink" title="（3）Pansharpening for Cloud-Contaminated Very High-Resolution Remote Sensing Images（2018年 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING SCI-3区）"></a>（3）Pansharpening for Cloud-Contaminated Very High-Resolution Remote Sensing Images（2018年 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING SCI-3区）</h6><p><img src="/2019/04/19/多幅遥感图像云雾去除方法/C:/Users\LIUYAJ~1\AppData\Local\Temp\1554887159713.png" alt="1554887159713"></p>
+<p>目标LR MS和HR PAN图像均受云污染，无云辅助LR MS和HR PAN图像应该进行几何配准和辐射标准化，以提供补充信息。需要注意的是应选择具有接近阶段的辅助图像，以确保目标图像的一致地面特征。所提出的方法的目的是在目标时间获得期望的无云HR MS图像。所提出的融合方法可以实现联合分辨率增强和云去除以获得无云HRMS图像。此外，它还可以应用于具有挑战性的云污染光学遥感观测与多种复杂云降解条件的融合，包括厚云，薄云，雾霾和云阴影。</p>
+<p>首先针对多源和多时间图像，首先进行几何配准和辐射标准化的预处理；为了去除薄云，雾霾和光云阴影，通过综合考虑目标图像和辅助图像之间可能的地面特征变化，引入基于滑动窗口的局部矩量匹配方法。通过调整局部平均值和方差来尽可能地保留目标图像的空间结构。在薄云，雾霾和光云阴影被移除后，目标MS和PAN图像仍然被厚云和暗云阴影污染，本文提出了一种基于变分的集成融合模型。所提出的模型基于多源和多时相图像，并且它可以实现联合分辨率增强和缺失信息重建以获得期望的无云HR MS图像。</p>
+<h6 id="（4）Cloud-removal-in-remote-sensing-images-using-nonnegative-matrix-factorization-and-error-correctio（2019年-武汉大学-ISPRS-Journal-of-Photogrammetry-and-Remote-Sensing-SCI-1区-）"><a href="#（4）Cloud-removal-in-remote-sensing-images-using-nonnegative-matrix-factorization-and-error-correctio（2019年-武汉大学-ISPRS-Journal-of-Photogrammetry-and-Remote-Sensing-SCI-1区-）" class="headerlink" title="（4）Cloud removal in remote sensing images using nonnegative matrix factorization and error correctio（2019年 武汉大学 ISPRS Journal of Photogrammetry and Remote Sensing  -SCI 1区 ）"></a>（4）Cloud removal in remote sensing images using nonnegative matrix factorization and error correctio（2019年 武汉大学 ISPRS Journal of Photogrammetry and Remote Sensing  -SCI 1区 ）</h6><p><img src="/2019/04/19/多幅遥感图像云雾去除方法/C:/Users\LIUYAJ~1\AppData\Local\Temp\1554887499869.png" alt="1554887499869"></p>
+<p>提出了一种非负矩阵因子分解(NMF)和误差校正(S-NMF-EC)方法来恢复云团和阴影所覆盖的原始信息。</p>
+<p>首先融合来自不同传感器的多个图像， 引入基于时空非局部滤波的融合模型(STNLFFM) 来缩短无噪声图像和云污染图像之间的时间差异。 高空间分辨率(HR)图像通常具有低时间分辨率，而高时间分辨率图像通常具有低空间分辨率(LR)。 STNLFFM方法通过融合HR和LR图像生成高空间 - 时间分辨率图像。将一幅参考图像和两幅或多幅低分辨率图像进行无云融合，得到一幅无云融合的参考图像。</p>
+<p>其次为了重建被云覆盖的缺失信息 ，采用S-NMF方法来去除受云污染图像。最后，通过误差修正，进一步提高了去云效果。值得注意的是S-NMF-EC方法不需要云检测，云污染图像的无云信息最大限度地保留。结果表明，S-NMF-EC与其去云方法相比，具有良好的视觉效果。</p>
+<h5 id="3-和遥感图像去雾相关的一些论文"><a href="#3-和遥感图像去雾相关的一些论文" class="headerlink" title="3.和遥感图像去雾相关的一些论文"></a>3.和遥感图像去雾相关的一些论文</h5><h6 id="（1）云区检测"><a href="#（1）云区检测" class="headerlink" title="（1）云区检测"></a>（1）云区检测</h6><p>Land use/cover classification of cloud-contaminated area by multitemporal remote sensing images (2014年  IEEE computer society 第六届智能人机系统与控制论国际会议 )</p>
+<p>首先，研究云覆盖区域与下垫面之间的差异，设计SVM分类方法，实现云覆盖区域的精确检测。其次，利用克里格插值建立具有时间序列土地利用分类结果的图像内画模型。根据时间序列分析理论，建立克里格插值算法，提高含云区域的精度。 </p>
+<h6 id="（2）根据光谱信息进行云雾去除"><a href="#（2）根据光谱信息进行云雾去除" class="headerlink" title="（2）根据光谱信息进行云雾去除"></a>（2）根据光谱信息进行云雾去除</h6><p>HAZE REMOVAL IN THE VISIBLE BANDS OF LANDSAT 8 OLI  OVER SHALLOW WATER AREA (2016 International Journal of Remote Sensing and Earth Sciences-SCI 4区)</p>
+<h6 id="（3）遥感图像融合"><a href="#（3）遥感图像融合" class="headerlink" title="（3）遥感图像融合"></a>（3）遥感图像融合</h6><p>Decision-Based Fusion for Pansharpening of Remote Sensing Images （2013年 IEEE GEOSCIENCE AND REMOTE SENSING LETTERS）</p>
+<p>Image Fusion With No Gamut Problem by Improved Nonlinear IHS Transforms for Remote Sensing （2014年 -IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING）</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/12/Linux系统操作-用户及文件权限管理/" rel="next" title="Linux系统操作-用户及文件权限管理">
+                <i class="fa fa-chevron-left"></i> Linux系统操作-用户及文件权限管理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/19/“Matlab解决非线性优化问题方案”/" rel="prev" title="“Matlab解决非线性优化问题方案”">
+                “Matlab解决非线性优化问题方案” <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/14.jpg" alt="丫靖">
+            
+              <p class="site-author-name" itemprop="name">丫靖</p>
+              <p class="site-description motion-element" itemprop="description">为你，千千万万遍</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二、多幅遥感图像云雾去除方法"><span class="nav-number">1.</span> <span class="nav-text">二、多幅遥感图像云雾去除方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-多时相遥感图像云雾去除"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">2.1 多时相遥感图像云雾去除</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-Cloud-Removal-From-Multitemporal-Satellite-Images-Using-Information-Clonin（2012年-IEEE-TRANSACTIONS-ON-GEOSCIENCE-AND-REMOTE-SENSING-SCI-2区）"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">(1) Cloud Removal From Multitemporal Satellite Images Using Information Clonin（2012年 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING -SCI -2区）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（2）A-Multiple-point-Geostatistics-Method-for-filling-gaps-in-Landsat-ETM-SLC-off-images-（2015年-第21届国际建模与仿真大会-）"><span class="nav-number">1.0.0.1.2.</span> <span class="nav-text">（2）A Multiple-point Geostatistics Method for filling gaps in Landsat ETM+ SLC-off images （2015年 第21届国际建模与仿真大会 ）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（3）Thin-cloud-removal-from-remote-sensing-images-using-multidirectional-dual-tree-complex-wavelet-transform-and-transfer-least-square-support-vector-regression（Journal-of-Applied-REMOTE-SENSING-SCI-4-区）"><span class="nav-number">1.0.0.1.3.</span> <span class="nav-text">（3）Thin cloud removal from remote sensing images using multidirectional dual tree complex wavelet transform and transfer least square support vector regression（Journal of Applied REMOTE SENSING-SCI 4 区）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（4）基于图像变换和迁移学习的薄云覆盖遥感图像地物信息恢复算法研究-Research-on-the-algorithm-of-ground-object-information-recovery-for-thin-cloud-contaminated-remote-sens-i-ng-images-based-on-image-transformateion-on-and-transfer-learning（硕士论文）"><span class="nav-number">1.0.0.1.4.</span> <span class="nav-text">（4）基于图像变换和迁移学习的薄云覆盖遥感图像地物信息恢复算法研究-Research on the algorithm of ground object information recovery for thin cloud contaminated remote sens i ng images based on image transformateion on and transfer learning（硕士论文）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（5）融合引导滤波和迁移学习的薄云图像中地物信息恢复算法-（2018测绘学报）"><span class="nav-number">1.0.0.1.5.</span> <span class="nav-text">（5）融合引导滤波和迁移学习的薄云图像中地物信息恢复算法 （2018测绘学报）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（6）Landsat卫星图像云层去除算法研究-Research-of-Cloud-Removal-Algorithm-for-Landsat（硕士论文）"><span class="nav-number">1.0.0.1.6.</span> <span class="nav-text">（6）Landsat卫星图像云层去除算法研究-Research of Cloud Removal Algorithm for Landsat（硕士论文）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-融合方法遥感图像云雾去除"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2.2 融合方法遥感图像云雾去除</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（1）Image-fusion-for-automatic-detection-and-removal-of-clouds-and-their-shadows-地理信息学2006"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">（1）Image fusion for automatic detection  and removal of clouds and their shadows(地理信息学2006 )</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（2）Cloud-covering-denoising-through-image-fusion-2007年-Image-and-Vision-Computing-SCI-3区"><span class="nav-number">1.0.0.2.2.</span> <span class="nav-text">（2）Cloud covering denoising through image fusion( 2007年 Image and Vision Computing -SCI 3区)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（3）Pansharpening-for-Cloud-Contaminated-Very-High-Resolution-Remote-Sensing-Images（2018年-IEEE-TRANSACTIONS-ON-GEOSCIENCE-AND-REMOTE-SENSING-SCI-3区）"><span class="nav-number">1.0.0.2.3.</span> <span class="nav-text">（3）Pansharpening for Cloud-Contaminated Very High-Resolution Remote Sensing Images（2018年 IEEE TRANSACTIONS ON GEOSCIENCE AND REMOTE SENSING SCI-3区）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（4）Cloud-removal-in-remote-sensing-images-using-nonnegative-matrix-factorization-and-error-correctio（2019年-武汉大学-ISPRS-Journal-of-Photogrammetry-and-Remote-Sensing-SCI-1区-）"><span class="nav-number">1.0.0.2.4.</span> <span class="nav-text">（4）Cloud removal in remote sensing images using nonnegative matrix factorization and error correctio（2019年 武汉大学 ISPRS Journal of Photogrammetry and Remote Sensing  -SCI 1区 ）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-和遥感图像去雾相关的一些论文"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3.和遥感图像去雾相关的一些论文</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（1）云区检测"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text">（1）云区检测</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（2）根据光谱信息进行云雾去除"><span class="nav-number">1.0.0.3.2.</span> <span class="nav-text">（2）根据光谱信息进行云雾去除</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（3）遥感图像融合"><span class="nav-number">1.0.0.3.3.</span> <span class="nav-text">（3）遥感图像融合</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">丫靖</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
