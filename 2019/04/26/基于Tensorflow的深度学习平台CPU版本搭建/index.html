@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="操作指令,">
+  <meta name="keywords" content="平台搭建,">
 
 
 
@@ -79,21 +79,27 @@
 
 
 
-<meta name="description" content="Linux系统学习-基本的命令行操作1、windows系统与Linux系统的对比（1）windows系统没有的：  稳定的系统 安全性和漏洞的快速修补 多用户 用户和用户组的规划 相对较少的系统资源占用 可定制裁剪，移植到嵌入式平台（如安卓设备） 可选择的多种图形用户界面（如 GNOME，KDE）  （2）Linux系统没有的：  特定的支持厂商 足够的游戏娱乐支持度 足够的专业软件支持度  2、">
-<meta name="keywords" content="操作指令">
+<meta name="description" content="说明：电脑：win10（64位）。显卡属于Intel系列，不支持CUDA所以无法安装GPU版本的TensorFlow，只能退而求其次安装据说功能等同于GPU版速度却很慢的CPU版本。  一、安装anaconda参考链接：https://www.anaconda.com/download/&amp;gt; （1）下载anaconda安装包，下载地址： https://www.anaconda.com/dow">
+<meta name="keywords" content="平台搭建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux系统学习-基本的命令行操作">
-<meta property="og:url" content="http://yoursite.com/2019/03/11/Linux系统学习-基本的命令行操作/index.html">
+<meta property="og:title" content="基于Tensorflow的深度学习平台CPU版本搭建">
+<meta property="og:url" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/index.html">
 <meta property="og:site_name" content="丫丫的幸福生活">
-<meta property="og:description" content="Linux系统学习-基本的命令行操作1、windows系统与Linux系统的对比（1）windows系统没有的：  稳定的系统 安全性和漏洞的快速修补 多用户 用户和用户组的规划 相对较少的系统资源占用 可定制裁剪，移植到嵌入式平台（如安卓设备） 可选择的多种图形用户界面（如 GNOME，KDE）  （2）Linux系统没有的：  特定的支持厂商 足够的游戏娱乐支持度 足够的专业软件支持度  2、">
+<meta property="og:description" content="说明：电脑：win10（64位）。显卡属于Intel系列，不支持CUDA所以无法安装GPU版本的TensorFlow，只能退而求其次安装据说功能等同于GPU版速度却很慢的CPU版本。  一、安装anaconda参考链接：https://www.anaconda.com/download/&amp;gt; （1）下载anaconda安装包，下载地址： https://www.anaconda.com/dow">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/11/Linux系统学习-基本的命令行操作/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/11/Linux系统学习-基本的命令行操作/2.png">
-<meta property="og:updated_time" content="2019-03-12T11:17:07.423Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo/hexospace/source/_posts/基于Tensorflow的深度学习平台CPU版本搭建/4">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo/hexospace/source/_posts/基于Tensorflow的深度学习平台CPU版本搭建/6">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo/hexospace/source/_posts/基于Tensorflow的深度学习平台CPU版本搭建/7">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo/hexospace/source/_posts/基于Tensorflow的深度学习平台CPU版本搭建/8">
+<meta property="og:image" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo/hexospace/source/_posts/基于Tensorflow的深度学习平台CPU版本搭建/9">
+<meta property="og:updated_time" content="2019-04-26T14:16:19.317Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux系统学习-基本的命令行操作">
-<meta name="twitter:description" content="Linux系统学习-基本的命令行操作1、windows系统与Linux系统的对比（1）windows系统没有的：  稳定的系统 安全性和漏洞的快速修补 多用户 用户和用户组的规划 相对较少的系统资源占用 可定制裁剪，移植到嵌入式平台（如安卓设备） 可选择的多种图形用户界面（如 GNOME，KDE）  （2）Linux系统没有的：  特定的支持厂商 足够的游戏娱乐支持度 足够的专业软件支持度  2、">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/11/Linux系统学习-基本的命令行操作/1.png">
+<meta name="twitter:title" content="基于Tensorflow的深度学习平台CPU版本搭建">
+<meta name="twitter:description" content="说明：电脑：win10（64位）。显卡属于Intel系列，不支持CUDA所以无法安装GPU版本的TensorFlow，只能退而求其次安装据说功能等同于GPU版速度却很慢的CPU版本。  一、安装anaconda参考链接：https://www.anaconda.com/download/&amp;gt; （1）下载anaconda安装包，下载地址： https://www.anaconda.com/dow">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/1.png">
 
 
 
@@ -123,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/11/Linux系统学习-基本的命令行操作/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/">
 
 
 
 
 
-  <title>Linux系统学习-基本的命令行操作 | 丫丫的幸福生活</title>
+  <title>基于Tensorflow的深度学习平台CPU版本搭建 | 丫丫的幸福生活</title>
   
 
 
@@ -276,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/Linux系统学习-基本的命令行操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="丫靖">
@@ -293,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux系统学习-基本的命令行操作</h1>
+          <h1 class="post-title" itemprop="name headline">基于Tensorflow的深度学习平台CPU版本搭建</h1>
         
 
         <div class="post-meta">
@@ -305,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-11T21:31:56+08:00">
-                2019-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T18:13:04+08:00">
+                2019-04-26
               </time>
             
 
@@ -328,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
 
@@ -365,30 +371,49 @@
       
 
       
-        <h3 id="Linux系统学习-基本的命令行操作"><a href="#Linux系统学习-基本的命令行操作" class="headerlink" title="Linux系统学习-基本的命令行操作"></a>Linux系统学习-基本的命令行操作</h3><h4 id="1、windows系统与Linux系统的对比"><a href="#1、windows系统与Linux系统的对比" class="headerlink" title="1、windows系统与Linux系统的对比"></a>1、windows系统与Linux系统的对比</h4><p>（1）windows系统没有的：</p>
-<ul>
-<li>稳定的系统</li>
-<li>安全性和漏洞的快速修补</li>
-<li>多用户</li>
-<li>用户和用户组的规划</li>
-<li>相对较少的系统资源占用</li>
-<li>可定制裁剪，移植到嵌入式平台（如安卓设备）</li>
-<li>可选择的多种图形用户界面（如 GNOME，KDE）</li>
-</ul>
-<p>（2）Linux系统没有的：</p>
-<ul>
-<li>特定的支持厂商</li>
-<li>足够的游戏娱乐支持度</li>
-<li>足够的专业软件支持度</li>
-</ul>
-<h4 id="2、Linux系统操作"><a href="#2、Linux系统操作" class="headerlink" title="2、Linux系统操作"></a>2、Linux系统操作</h4><p>Shell 是指“提供给使用者使用界面”的软件（命令解析器），类似于 DOS 下的 command（命令行）和后来的 cmd.exe 。</p>
-<h5 id="（1）重要的快捷键"><a href="#（1）重要的快捷键" class="headerlink" title="（1）重要的快捷键"></a>（1）重要的快捷键</h5><p><img src="/2019/03/11/Linux系统学习-基本的命令行操作/1.png"></p>
-<h6 id="Tab"><a href="#Tab" class="headerlink" title="[Tab]"></a>[Tab]</h6><p>使用<code>Tab</code>键来进行命令补全，<code>Tab</code>键一般是在字母<code>Q</code>旁边，这个技巧给你带来的最大的好处就是当你忘记某个命令的全称时可以只输入它的开头的一部分，然后按下<code>Tab</code>键就可以得到提示或者帮助完成，还可以补全命令，补全目录、补全命令参数。</p>
-<h6 id="Ctrl-c"><a href="#Ctrl-c" class="headerlink" title="[Ctrl+c]"></a>[Ctrl+c]</h6><p>错误地使用了一个命令，使用<code>Ctrl+c</code>键来强行终止当前程序。</p>
-<h5 id="（2）-学会利用历史输入命令"><a href="#（2）-学会利用历史输入命令" class="headerlink" title="（2） 学会利用历史输入命令"></a>（2） 学会利用历史输入命令</h5><p>使用键盘上的方向上键<code>↑</code>，恢复你之前输入过的命令。</p>
-<h5 id="3-学会使用通配符"><a href="#3-学会使用通配符" class="headerlink" title="(3) 学会使用通配符"></a>(3) 学会使用通配符</h5><p>通配符是一种特殊语句，主要有星号（*）和问号（?），用来对字符串进行模糊匹配（比如文件名、参数名）</p>
-<p><img src="/2019/03/11/Linux系统学习-基本的命令行操作/2.png"></p>
-<h5 id="4-学会在命令行中获取帮助"><a href="#4-学会在命令行中获取帮助" class="headerlink" title="(4) 学会在命令行中获取帮助"></a>(4) 学会在命令行中获取帮助</h5><p>在 Linux 环境中，如果你遇到困难，可以使用<code>man</code>命令，它是<code>Manual pages</code>的缩写,按下<code>q</code>退出。</p>
+        <p>说明：电脑：win10（64位）。显卡属于Intel系列，不支持CUDA所以无法安装GPU版本的TensorFlow，只能退而求其次安装据说功能等同于GPU版速度却很慢的CPU版本。 </p>
+<h5 id="一、安装anaconda"><a href="#一、安装anaconda" class="headerlink" title="一、安装anaconda"></a>一、安装anaconda</h5><p>参考链接：<a href="https://www.anaconda.com/download/&gt;" target="_blank" rel="noopener">https://www.anaconda.com/download/&gt;</a></p>
+<p>（1）下载anaconda安装包，下载地址： <a href="https://www.anaconda.com/download/#windows" target="_blank" rel="noopener">https://www.anaconda.com/download/#windows</a> </p>
+<p><img src="/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/1.png"></p>
+<p>（2）执行下载后的exe文件，安装。</p>
+<p>注意安装anaconda时需要把环境变量加入windows环境中。这里建议安装完后手动加入，在最安装过程中，最好不要在第一个框里面打钩。 （反复安装了不下5遍，最后问题出在这里，血的教训，不过也有打钩安装成功的，这里注意一下，每个人的问题都不一样）。</p>
+<p><img src="/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/2.png"></p>
+<p>（3）环境变量设置</p>
+<p>因为我的环境变量是手动设置的，所以这里需要对环境变量进行设置，步骤如下：</p>
+<p>首先找到anaconda的安装路径，如下图所示：</p>
+<p><img src="/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/3.png"></p>
+<p>然后找到一个scripts文件，点击后将路径复制 </p>
+<p><img src="/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo\hexospace\source\_posts\基于Tensorflow的深度学习平台CPU版本搭建\4" alt="1556286039253"></p>
+<p>然后，右键“我的电脑”&gt;选择“属性”&gt;高级系统设置&gt;环境变量,然后，在系统变量中找到path</p>
+<p> <img src="/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo\hexospace\source\_posts\基于Tensorflow的深度学习平台CPU版本搭建\6" alt="1556286132843"></p>
+<p>选中path ，然后点击编辑，将光标移到最后面，将键盘转换为英文输入法，输入一个分号      (     ;      )，然后将复制的路径，粘贴在分号后面，点击确定，保存后关闭就可以，启动anaconda就可以使用了。 </p>
+<p>如果正确安装，从电脑开始那里搜索，可以得到</p>
+<p><img src="/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo\hexospace\source\_posts\基于Tensorflow的深度学习平台CPU版本搭建\7" alt="1556286521058"></p>
+<p>（4）检查安装结果。运行<code>开始菜单—&gt;Anaconda3—&gt;Anaconda Prompt</code> </p>
+<p>检测anaconda环境是否安装成功：conda –version ，会得到conda的版本信息</p>
+<p>检测目前安装了哪些环境变量：conda info –envs </p>
+<h5 id="二、安装tensorflow"><a href="#二、安装tensorflow" class="headerlink" title="二、安装tensorflow"></a>二、安装tensorflow</h5><p>对于现有的深度学习框架，现在使用最多的大概为基于符号式编程和命令式编程的下面两种框架。</p>
+<p><strong>符号式编程：</strong>最主流的代表，当然就是TensorFlow了。</p>
+<p><strong>命令式编程：</strong>最主流主流的代表就是PyTorch。</p>
+<p>这里详细介绍tensorflow的安装步骤。</p>
+<p>（1）进入windows命令模式，创建tfenv环境，安装python3.5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name tfenv python=3.5</span><br></pre></td></tr></table></figure>
+<p>现有的tensorflow框架只支持python3.5和python3.6，而相比较而言，tensorflow更加稳定，所以这里安装3.5版本。其中tfenv是申请的环境名称，这里还可以设置为其他名称。</p>
+<p>(2)  激活tensflow的tfenv环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate  tfenv</span><br></pre></td></tr></table></figure>
+<p>（3）检测当前环境中的python的版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
+<p>（4）退出tfenv的环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+<p>（5）在tfenv环境中正式安装tensorflow包</p>
+<p>1）激活tensflow的tfenv环境，并开始安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> activate  tfenv</span><br><span class="line"></span><br><span class="line">pip install --upgrade --ignore-installed tensorflow</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo\hexospace\source\_posts\基于Tensorflow的深度学习平台CPU版本搭建\8" alt="1556287379816"></p>
+<p>2）验证功能，python 进入代码环境 </p>
+<p><img src="/2019/04/26/基于Tensorflow的深度学习平台CPU版本搭建/D:/hexo\hexospace\source\_posts\基于Tensorflow的深度学习平台CPU版本搭建\9" alt="1556287438258"></p>
+<h5 id="三、遇到的问题"><a href="#三、遇到的问题" class="headerlink" title="三、遇到的问题"></a>三、遇到的问题</h5><p>（1）安装anaconda失败</p>
+<p>首先检查你的环境变量是否设置，安装到百分之80的时候会跳出一个exe文件，切记不要关掉。</p>
+<p>（2）anaconda prompt打开，所有的命令都不管用，报错，请注意使用管理员的身份运行</p>
 
       
     </div>
@@ -406,7 +431,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/操作指令/" rel="tag"># 操作指令</a>
+            <a href="/tags/平台搭建/" rel="tag"># 平台搭建</a>
           
         </div>
       
@@ -419,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/28/主成分分析及其对应的推导过程/" rel="next" title="主成分分析及其对应的推导过程">
-                <i class="fa fa-chevron-left"></i> 主成分分析及其对应的推导过程
+              <a href="/2019/04/19/遥感图像处理高水平SCI及数据下载地址/" rel="next" title="遥感图像处理高水平SCI及数据下载地址">
+                <i class="fa fa-chevron-left"></i> 遥感图像处理高水平SCI及数据下载地址
               </a>
             
           </div>
@@ -428,10 +453,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/12/Linux系统操作-用户及文件权限管理/" rel="prev" title="Linux系统操作-用户及文件权限管理">
-                Linux系统操作-用户及文件权限管理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -565,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux系统学习-基本的命令行操作"><span class="nav-number">1.</span> <span class="nav-text">Linux系统学习-基本的命令行操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、windows系统与Linux系统的对比"><span class="nav-number">1.1.</span> <span class="nav-text">1、windows系统与Linux系统的对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、Linux系统操作"><span class="nav-number">1.2.</span> <span class="nav-text">2、Linux系统操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）重要的快捷键"><span class="nav-number">1.2.1.</span> <span class="nav-text">（1）重要的快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Tab"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">[Tab]</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Ctrl-c"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">[Ctrl+c]</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（2）-学会利用历史输入命令"><span class="nav-number">1.2.2.</span> <span class="nav-text">（2） 学会利用历史输入命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-学会使用通配符"><span class="nav-number">1.2.3.</span> <span class="nav-text">(3) 学会使用通配符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-学会在命令行中获取帮助"><span class="nav-number">1.2.4.</span> <span class="nav-text">(4) 学会在命令行中获取帮助</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、安装anaconda"><span class="nav-number">1.</span> <span class="nav-text">一、安装anaconda</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、安装tensorflow"><span class="nav-number">2.</span> <span class="nav-text">二、安装tensorflow</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">三、遇到的问题</span></a></li></ol></div>
             
 
           </div>
